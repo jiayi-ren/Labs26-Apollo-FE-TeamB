@@ -1,10 +1,6 @@
 import axios from 'axios';
 import { store } from '../state/store';
 
-// the live api
-const liveUrl = 'https://apollo-b-api.herokuapp.com';
-// for testing locally
-const localtesturl = 'http://localhost:2019';
 const usertopics = `/topics/topics`;
 const createNew = `/topics/new`;
 // we will define a bunch of API calls here.
@@ -25,7 +21,7 @@ const axiosWithAuth = () => {
     headers: {
       Authorization: 'Bearer ' + token,
     },
-    baseURL: liveUrl,
+    baseURL: process.env.REACT_APP_API_URI,
   });
 };
 
